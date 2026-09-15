@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Sainte Bible - TGT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .bible-card-container {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            text-align: center;
+            margin-top: 20px;
+            border-top: 4px solid var(--gold-bright);
+        }
+        .bible-header-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .bible-version-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+        .bible-subtitle {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .open-bible-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-dark);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(138, 109, 59, 0.2);
+            transition: transform 0.2s;
+            width: 100%;
+        }
+        .open-bible-btn:active {
+            transform: scale(0.97);
+        }
+        .info-reading-box {
+            margin-top: 20px;
+            background: #fdfaf4;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px dashed #ebdcb9;
+            text-align: left;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre supérieure fixe avec flèche retour vers publications.html -->
+    <header class="app-header">
+        <div class="header-content">
+            <a href="publications.html" style="color: white; text-decoration: none; font-size: 1.2rem;">⬅</a>
+            <h1>La Sainte Bible</h1>
+            <span></span>
+        </div>
+    </header>
+
+    <main class="app-container">
+        
+        <div class="bible-card-container">
+            <div class="bible-header-icon">📖</div>
+            <h2 class="bible-version-title">La Sainte Bible</h2>
+            <p class="bible-subtitle">Version Louis Segond (LSG)<br>Ancien et Nouveau Testament</p>
+            
+            <!-- LIEN EN DIRECT AVEC VOTRE FICHIER BIBLE INTERNE -->
+            <a href="bible_lsg.pdf" target="_blank" class="open-bible-btn">
+                📖 Ouvrir et Lire la Parole
+            </a>
+
+            <div class="info-reading-box">
+                💡 <strong>Conseil de lecture :</strong> Pour chercher un livre ou un verset spécifique rapidement, utilisez la loupe de recherche intégrée en haut de votre lecteur PDF une fois le document ouvert.
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

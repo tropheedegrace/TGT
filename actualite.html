@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - TGT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .news-grid { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            margin-top: 20px; 
+        }
+        .news-card {
+            display: flex; 
+            align-items: flex-start; 
+            background: white; 
+            padding: 18px 15px;
+            border-radius: 14px; 
+            text-decoration: none; 
+            color: var(--text-main);
+            border-left: 4px solid var(--gold-bright); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        
+        /* STYLE DES ICONES IMAGES BIEN TRAITÉES POUR LES ACTUALITÉS */
+        .item-image-icon { 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 12px; /* Superbes coins arrondis */
+            object-fit: cover; /* Recadre proprement sans déformer */
+            margin-right: 18px; 
+            border: 2px solid #ebdcb9;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+            flex-shrink: 0; /* Empêche l'image de se déformer si le texte est long */
+        }
+        
+        .news-details { 
+            flex: 1; 
+        }
+        .news-date {
+            font-size: 0.75rem;
+            color: #8c826e;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+        .news-title { 
+            font-size: 1rem; 
+            margin-bottom: 6px; 
+            color: var(--primary-dark); 
+            font-weight: bold;
+        }
+        .news-text { 
+            font-size: 0.85rem; 
+            color: #555; 
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre supérieure fixe avec flèche retour vers l'accueil principal -->
+    <header class="app-header">
+        <div class="header-content">
+            <a href="index.html" style="color: white; text-decoration: none; font-size: 1.2rem;">⬅</a>
+            <h1>Actualités Tabernacle</h1>
+            <span></span>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <div class="news-grid">
+            
+            <!-- ANNONCE 1 : COMMUNIQUÉ OFFICIEL -->
+            <div class="news-card">
+                <img src="communique-ico.png" alt="Communiqué" class="item-image-icon">
+                <div class="news-details">
+                    <div class="news-date">📅 Communiqué Officiel</div>
+                    <h3 class="news-title">Bienvenue sur votre Application</h3>
+                    <p class="news-text">Retrouvez ici toutes les dernières annonces, les partages et les communiqués importants concernant la vie spirituelle et les activités de notre église Trophée de Grâce Tabernacle.</p>
+                </div>
+            </div>
+
+            <!-- ANNONCE 2 : RAPPEL RÉGULIER -->
+            <div class="news-card">
+                <img src="rappel-ico.png" alt="Rappel" class="item-image-icon">
+                <div class="news-details">
+                    <div class="news-date">📅 Rappel Régulier</div>
+                    <h3 class="news-title">Disponibilité des Brochures</h3>
+                    <p class="news-text">La bibliothèque numérique de l'application vient d'être mise à jour. Vous pouvez dès maintenant explorer l'intégralité du Grenier du Message ainsi que la Sainte Bible en format mobile.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
