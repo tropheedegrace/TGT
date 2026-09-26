@@ -1,0 +1,19 @@
+services:
+  uzaapp:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      UZAA_DATABASE_PATH: /data/uzaapp.sqlite3
+      UZAA_BACKUP_DIR: /backups
+      UZAA_RATE_LIMIT_SECRET: ${UZAA_RATE_LIMIT_SECRET:-local-demo-only}
+      UZAA_SETUP_KEY: ${UZAA_SETUP_KEY:-}
+      UZAA_ALLOW_PUBLIC_REGISTRATION: ${UZAA_ALLOW_PUBLIC_REGISTRATION:-true}
+    volumes:
+      - uzaa_data:/data
+      - uzaa_backups:/backups
+    restart: unless-stopped
+
+volumes:
+  uzaa_data:
+  uzaa_backups:

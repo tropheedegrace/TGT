@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title">
+  <title id="title">Emblème UzaApp : un arbre soutenu par des mains</title>
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b5f1ff"/>
+      <stop offset="1" stop-color="#4a9ed2"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b2ed54"/>
+      <stop offset="1" stop-color="#45a846"/>
+    </linearGradient>
+  </defs>
+  <path d="M90 13a77 77 0 0 0-22 151l7-12a63 63 0 1 1 30 0l7 12A77 77 0 0 0 90 13Z" fill="url(#blue)"/>
+  <path d="M85 119c-13-10-29-16-42-31-4-5-7-12-9-20-1-5-6-7-9-3-3 4-1 13 1 21 4 16 11 29 22 39 8 7 15 14 18 23l11 7 10-6-2-30Z" fill="url(#blue)" stroke="#133a4b" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M95 119c13-10 29-16 42-31 4-5 7-12 9-20 1-5 6-7 9-3 3 4 1 13-1 21-4 16-11 29-22 39-8 7-15 14-18 23l-11 7-10-6 2-30Z" fill="url(#blue)" stroke="#133a4b" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M90 127V69m0 35L70 83m20 9 19-19m-19 10-2-25m2 39-23-2m23-8 20 1" fill="none" stroke="#347c36" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="url(#green)" stroke="#347c36" stroke-width="1.6">
+    <path d="M88 19c-5 8-4 14 3 18 7-5 7-11 0-18Zm-21 8c-1 9 2 14 10 15 5-7 2-13-10-15Zm43 0c-10 2-13 8-8 15 8-1 11-6 8-15ZM48 43c5 8 11 9 17 4-1-8-7-11-17-4Zm81 0c-10-4-16-2-17 6 6 5 12 3 17-6ZM36 65c8 5 14 4 17-4-5-7-11-7-17 4Zm107 0c-6-11-12-11-17-4 3 8 9 9 17 4ZM44 86c10 1 15-3 14-11-8-4-13 0-14 11Zm91 0c-1-11-6-15-14-11-1 8 4 12 14 11ZM60 104c10-2 13-8 8-15-8 1-11 6-8 15Zm59 0c3-9 0-14-8-15-5 7-2 13 8 15ZM78 55c-6 7-5 13 2 17 7-4 7-10-2-17Zm24 0c-9 7-9 13-2 17 7-4 8-10 2-17Z"/>
+  </g>
+</svg>

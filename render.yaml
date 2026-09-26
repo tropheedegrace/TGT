@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: uzaapp-demo
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips=*
+    healthCheckPath: /api/health
+    envVars:
+      - key: UZAA_DATABASE_PATH
+        value: /tmp/uzaapp-demo.sqlite3
+      - key: UZAA_RATE_LIMIT_SECRET
+        generateValue: true
+      - key: UZAA_HTTPS_ONLY
+        value: "true"

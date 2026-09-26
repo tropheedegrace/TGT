@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#133d36">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="UzaApp">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="logo-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="logo-mark.svg">
+  <title>UzaApp | Gestion de commerce</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <section class="welcome" id="welcome" aria-labelledby="welcome-title">
+    <div class="welcome-brand"><img class="welcome-logo" src="uzaa-logo-transparent.png" alt="Logo officiel UzaApp"></div>
+    <p class="welcome-tagline">Votre avenir dans vos mains.</p>
+    <p class="eyebrow">GESTION DE COMMERCE</p>
+    <h1 id="welcome-title">Votre commerce,<br><span>en confiance.</span></h1>
+    <p class="welcome-copy">Des opérations suivies, des chiffres clairs et un stock toujours sous contrôle.</p>
+    <div class="trust-line"><span class="trust-dot"></span> Vos données sont rattachées à votre commerce</div>
+    <button class="button button-light" id="open-app" type="button">Se connecter <span aria-hidden="true">→</span></button>
+    <p class="welcome-foot">La première étape d’une gestion plus sûre.</p>
+  </section>
+
+  <div class="app-shell" id="app-shell" hidden>
+    <aside class="sidebar" aria-label="Navigation principale">
+      <a class="brand" href="#accueil" aria-label="UzaApp, accueil">
+        <img class="brand-mark" src="logo-mark.svg" alt=""><span><b>UZAAPP</b><small>Votre avenir dans vos mains</small></span>
+      </a>
+      <div class="sidebar-label">ESPACE DE TRAVAIL</div>
+      <nav class="nav-list" id="navigation"></nav>
+      <div class="sidebar-bottom">
+        <div class="secure-note"><span aria-hidden="true">◆</span><span><b>Mode local</b><small>Données sur cet appareil</small></span></div>
+        <button class="settings-link" id="settings-button" type="button"><span aria-hidden="true">⚙</span> Établissement</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><img class="brand-mark" src="logo-mark.svg" alt=""><b>UZAAPP</b></div>
+        <div class="topbar-meta"><span class="today" id="today"></span><span class="local-pill"><i></i> Local</span></div>
+        <div class="account-actions"><span class="account-badge" id="account-badge"></span><button class="logout-button" id="logout-button" type="button">Se déconnecter</button></div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="page-heading">
+          <div><p class="eyebrow" id="page-kicker">VOTRE ACTIVITÉ</p><h2 id="page-title">Vue d’ensemble</h2><p class="page-subtitle" id="page-subtitle">Les repères essentiels de votre établissement, aujourd’hui.</p></div>
+          <button class="date-button" id="date-button" type="button"><span aria-hidden="true">▦</span> <span id="date-label"></span></button>
+        </section>
+
+        <div class="prototype-notice" id="prototype-notice"><span aria-hidden="true">i</span> Prototype local : le choix Gérant / Agent sert à prévisualiser l’interface, pas à sécuriser les accès.</div>
+        <section id="page-content" aria-live="polite"></section>
+      </div>
+      <footer class="app-footer"><span>UZAA BEYI TSHINI</span><span>UzaApp <b>·</b> gestion sereine</span></footer>
+    </main>
+  </div>
+
+  <dialog class="modal" id="settings-modal">
+    <form method="dialog" class="modal-close-row"><button class="icon-button" aria-label="Fermer" value="close">×</button></form>
+    <p class="eyebrow">VOTRE ÉTABLISSEMENT</p><h2>Profil du commerce</h2>
+    <form id="profile-form" class="profile-form">
+      <label>Nom de l’établissement<input name="nom" maxlength="100" placeholder="Ex. Boutique Uzaa" required></label>
+      <label>Adresse<input name="adresse" maxlength="160" placeholder="Adresse du commerce"></label>
+      <div class="form-pair"><label>Téléphone<input name="telephone" maxlength="40" inputmode="tel" placeholder="+243 …"></label><label>Adresse e-mail<input name="email" maxlength="120" type="email" placeholder="commerce@exemple.cd"></label></div>
+      <p class="modal-hint">Informations enregistrées avec les données de votre commerce.</p>
+      <div class="form-row-inline">
+        <button class="button button-primary" type="submit">Enregistrer le profil</button>
+        <button class="button button-secondary" id="backup-button" type="button">Sauvegarder la base</button>
+      </div>
+    </form>
+    <section class="team-section" id="team-section">
+      <p class="eyebrow">ACCÈS À L’ÉQUIPE</p><h3>Créer un compte agent</h3>
+      <form id="agent-form" class="profile-form">
+        <label>Nom de connexion<input name="username" minlength="3" maxlength="40" pattern="[A-Za-z0-9_.-]+" autocomplete="off" required></label>
+        <label>Mot de passe temporaire<input name="password" type="password" minlength="12" maxlength="200" autocomplete="new-password" required></label>
+        <p class="modal-hint">Transmettez ces accès à l’agent en privé. Il pourra utiliser son compte sur ses appareils.</p>
+        <button class="button button-secondary" type="submit">Créer le compte agent</button>
+        <p class="feedback" id="agent-feedback" aria-live="polite"></p>
+      </form>
+      <div class="agent-list" id="agent-list" aria-live="polite"></div>
+    </section>
+  </dialog>
+  <dialog class="modal" id="auth-modal" aria-labelledby="auth-title">
+    <form method="dialog" class="modal-close-row"><button class="icon-button" aria-label="Fermer" value="close">×</button></form>
+    <p class="eyebrow">ACCÈS SÉCURISÉ UZAAPP</p><h2 id="auth-title">Connexion</h2>
+    <form id="auth-form" class="profile-form">
+      <label>Nom de compte<input name="username" minlength="3" maxlength="40" autocomplete="username" required></label>
+      <label>Mot de passe<input name="password" type="password" minlength="12" maxlength="200" autocomplete="current-password" required></label>
+      <div id="setup-fields" class="profile-form" hidden>
+        <p class="setup-explainer" id="setup-explainer">Initialisez le premier compte gérant avec le code de configuration fourni par l’administrateur du serveur.</p>
+        <label id="setup-key-field">Code de première configuration<input name="setup_key" type="password" maxlength="200" autocomplete="off" required></label>
+        <label class="honeypot" aria-hidden="true">Laisser ce champ vide<input name="website" tabindex="-1" autocomplete="off"></label>
+        <label>Nom de l’établissement<input name="establishment" maxlength="100"></label>
+        <label>Adresse<input name="address" maxlength="160"></label>
+        <label>Téléphone<input name="telephone" maxlength="40" inputmode="tel"></label>
+        <label>Adresse e-mail<input name="email" maxlength="120" type="email"></label>
+        <p class="modal-hint">Le mot de passe doit contenir au moins 12 caractères.</p>
+      </div>
+      <p class="feedback" id="auth-feedback" aria-live="polite"></p>
+      <button class="button button-primary" id="auth-submit" type="submit">Se connecter</button>
+    </form>
+    <button class="text-link auth-mode-toggle" id="auth-mode-toggle" type="button">Créer un compte commerce</button>
+  </dialog>
+  <dialog class="scan-modal" id="scan-modal" aria-labelledby="scan-title">
+    <div class="scan-modal-head"><div><p class="eyebrow">CAISSE UZAAPP</p><h2 id="scan-title">Scanner un article</h2></div><button class="icon-button" id="close-scan" type="button" aria-label="Fermer le scanner">×</button></div>
+    <div class="camera-stage"><video id="scan-video" muted playsinline></video><div class="scan-frame" aria-hidden="true"></div><div class="camera-placeholder" id="camera-placeholder">Autorisez la caméra pour scanner un code-barres.</div></div>
+    <p class="camera-status" id="camera-status" role="status">Le scan caméra nécessite une connexion sécurisée (HTTPS ou localhost).</p>
+    <button class="button button-secondary button-small" id="retry-camera" type="button">Réessayer la caméra</button>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
